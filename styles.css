@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+}
+
+header {
+  background: #222;
+  color: white;
+  padding: 12px;
+  text-align: center;
+}
+
+.box {
+  background: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input, button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+canvas {
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+body:not(.admin) .admin-only {
+  display: none;
+}
+
+@media print {
+  body * {
+    display: none;
+  }
+  .ticket {
+    display: block;
+    font-size: 12px;
+  }
+}
