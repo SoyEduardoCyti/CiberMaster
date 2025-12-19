@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ciber Print</title>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="ticket.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#007bff">
+
+<script src="libs/pdf.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h1>🖨️ Ciber Print</h1>
+</header>
+
+<section class="box">
+  <input type="file" id="fileInput" accept=".pdf,.jpg,.png">
+</section>
+
+<section class="box admin-only">
+  <h3>Precios</h3>
+  <label>Precio B/N
+    <input type="number" id="precioBN" value="2">
+  </label>
+
+  <label>Precio Color 100%
+    <input type="number" id="precioColor" value="12">
+  </label>
+
+  <label>Descuento manual %
+    <input type="number" id="descuento" value="0">
+  </label>
+
+  <h3>Descuento por volumen</h3>
+  <label>10 páginas %
+    <input type="number" id="vol10" value="5">
+  </label>
+  <label>30 páginas %
+    <input type="number" id="vol30" value="10">
+  </label>
+  <label>100 páginas %
+    <input type="number" id="vol100" value="20">
+  </label>
+</section>
+
+<section class="box">
+  <label><input type="checkbox" id="dobleCara"> Doble cara</label>
+  <label><input type="checkbox" id="soloBN"> Solo B/N</label>
+</section>
+
+<section class="box">
+  <button onclick="procesarArchivo()">Calcular</button>
+  <button onclick="loginAdmin()">Modo Admin</button>
+</section>
+
+<section class="box">
+  <h2>Previsualización</h2>
+  <div id="preview"></div>
+</section>
+
+<section class="box">
+  <h2>Resultado</h2>
+  <div id="resultado"></div>
+  <button onclick="imprimirTicket()">Imprimir ticket</button>
+</section>
+
+<div id="ticket" class="ticket"></div>
+
+<script src="app.js"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+}
+</script>
+
+</body>
+</html>
